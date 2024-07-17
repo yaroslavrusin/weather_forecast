@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% block title %}Вход в систему{% endblock title %}
+{% block content %}
+<h1>{{title}}</h1>
+ 
+    <form action="." method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+         <button type="submit" class="btn btn-success">
+             Регистрация
+        </button>
+        {% endbuttons %}
+    </form>
+ 
+{% endblock %}
