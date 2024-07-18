@@ -5,9 +5,18 @@ from django.db import models
 # Create your models here.
 
 class City(models.Model):
-    name = models.CharField(max_length=250, unique=True, db_index=True)
+    name = models.CharField(
+        max_length=250,
+        unique=True,
+        db_index=True)
     latitude = models.FloatField()
     longitude = models.FloatField()
+
+    def get_weather_forecast(self):
+        pass
+
+    def __str__(self):
+        return self.name
 
 
 class QueryHistory(models.Model):

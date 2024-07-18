@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+{% block title %}Погода{% endblock title %}
+{% block content %}
+
+    {{ form.media.css }}
+    <style>
+        input, select {width: 100%}
+    </style>
+ <h1>{{title}}</h1>
+    <p>Для просмотра погоды введите название города:</p>
+    <form action="." method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+         <button type="submit" class="btn btn-success">
+             Запрос погоды
+        </button>
+        {% endbuttons %}
+    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{ form.media.js }}
+{% endblock content %}

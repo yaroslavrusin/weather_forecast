@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'forecast.apps.ForecastConfig',
     'users.apps.UsersConfig',
     'bootstrap5',
+    'django_select2',
 ]
 
 MIDDLEWARE = [
