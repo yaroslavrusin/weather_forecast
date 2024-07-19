@@ -14,4 +14,4 @@ class MyWidget(s2forms.ModelSelect2Widget):
 
 class SearchForm(forms.Form):
     """Форма для поиска нужного города"""
-    name = forms.ChoiceField(widget=MyWidget, label='Выберите город')
+    name = forms.CharField(widget=MyWidget, label='Выберите город')

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'bootstrap5',
     'django_select2',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

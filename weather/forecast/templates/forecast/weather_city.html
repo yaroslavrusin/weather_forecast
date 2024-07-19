@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+{% block title %}Погода{% endblock title %}
+{% block content %}
+ <h1>Прогноз погоды в {{ title }}</h1>
+<a href="{% url 'main' %}">Назад</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Дата и время</th>
+      <th scope="col">Температура</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for row in data_weather.values %}
+    <tr>
+      <td>{{ row.0 }}</td>
+      <th>{{ row.1 }}</th>
+    </tr>
+  {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

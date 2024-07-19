@@ -1,5 +1,9 @@
+from datetime import datetime, timedelta
+
 from django.contrib.auth.models import User
 from django.db import models
+
+from . import utils
 
 
 # Create your models here.
@@ -13,7 +17,12 @@ class City(models.Model):
     longitude = models.FloatField()
 
     def get_weather_forecast(self):
-        pass
+        return utils.get_weather_forecast(
+            self.latitude,
+            self.longitude,
+            datetime.now(),
+            datetime.now() + timedelta(days=1)
+        )
 
     def __str__(self):
         return self.name

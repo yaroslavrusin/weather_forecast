@@ -2,14 +2,17 @@
 {% load bootstrap5 %}
 {% block title %}Погода{% endblock title %}
 {% block content %}
-
     {{ form.media.css }}
-    <style>
-        input, select {width: 100%}
-    </style>
  <h1>{{title}}</h1>
+    {% if history %}
+        <p>Посмотреть погоду в
+            <a href="{% url 'weather_city' %}?name={{ history.city_id.pk }}">
+                {{ history.city_id }}
+            </a> ещё раз
+        </p>
+    {% endif %}
     <p>Для просмотра погоды введите название города:</p>
-    <form action="." method="post" class="form">
+    <form action="{% url 'weather_city' %}" method="get" class="form">
         {% csrf_token %}
         {% bootstrap_form form %}
         {% buttons %}
